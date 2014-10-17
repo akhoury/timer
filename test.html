@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1, width=device-width" />
+    <script src="timer.js"></script>
+</head>
+<body>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<h2>There is nothing to see here, view source</h2>
+
+<script>
+
+    // global options, or can be set via queryParams, see ./readme.md
+
+    // timer.autoreload = false;
+    // timer.timeout = 10000;
+    timer.hidden = false;
+    timer.persistapi = '//localhost/'; // timer.persistapi = true; // uses ./timer.php
+
+    // 3 tests
+
+    timer.start('test-1', {
+        hidden: true,
+        persistapi: '//my-1st-host.com/'
+    });
+
+    timer.start('test-2', {
+        // hidden: false,
+        // persistapi: '//my-2nd-host.com/'
+    });
+
+    timer.start('test-3', {
+        // hidden: false,
+        timeout: 3000,
+        persistapi: '//my-3rd-host.com/'
+    });
+
+    setTimeout(function() {
+        timer.stop('test-3');
+    }, 5000);
+
+    setTimeout(function() {
+        timer.stop('test-1');
+    }, 3000);
+
+    setTimeout(function() {
+        timer.stop('test-2');
+    }, 2000);
+</script>
+
+</body>
+</html>
